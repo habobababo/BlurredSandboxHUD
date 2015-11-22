@@ -92,9 +92,6 @@ local function CoreHud()
 		draw.SimpleTextOutlined( magextra,"ammof",ScrW() - 38,ScrH() - 31, Color( 110,110,110,255 ),TEXT_ALIGN_CENTER,0,1,Color( 0,0,0,60 ))-- THE TEXT WITHIN THE BOX
 	end
 
-	if secammo > 0 then
-	
-	end
 	
 	
 end
