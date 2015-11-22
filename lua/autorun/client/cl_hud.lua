@@ -14,9 +14,7 @@ surface.CreateFont("HUDFont8", {
 	font 	= "Arial",
 	size	= 24,
 	weight	= 300	
-	})
-	
-
+})
 surface.CreateFont( "ammof", {
     font = "Trebuchet MS", 
     size = 30, 
@@ -55,16 +53,13 @@ local function CoreHud()
 	local armorwide = armormul * (leftwidehalf - 30)
 
 	drawBlur( 0, ScrH() - 32, ScrW(), 32, 3, 6, 255 )
-
 	draw.RoundedBox(0, 0, ScrH() - 33.5, ScrW(), 1, Color(0, 0, 0,160), TEXT_ALIGN_LEFT)
 	
 	local hpcl = math.Clamp(HP,0,100) / 100
 	local hpwide = hpcl * (leftwidehalf - 30)
-
 	
 	draw.RoundedBox(4, 18, ScrH() - 25.5,leftwidehalf - 29,20, Color(110, 110, 110,100))
 	draw.RoundedBox(4, 18, ScrH() - 25.5,hpwide+1,20, Color( 200, 10, 10, 200 ))
-	
 	
 	draw.SimpleText(localplayer:Health(), "HUDFont8", 17.5 + ((leftwidehalf - 30) / 2), ScrH() - 26, Color(255,255,255,255), TEXT_ALIGN_CENTER)
 	draw.SimpleTextOutlined("rank: "..rank ,"HUDFont8", ScrW() * 0.75, ScrH() - 27, Color(255,255,255,255), TEXT_ALIGN_CENTER,0,1,Color( 0,0,0,60 ))
@@ -90,13 +85,11 @@ local function CoreHud()
 
 	if magleft > -1 then
 
-	draw.SimpleTextOutlined( magleft,"ammof",ScrW() - 86,ScrH() - 31, Color( 230,230,230,255),TEXT_ALIGN_CENTER,0,1,Color( 0,0,0,60 ))-- THE TEXT WITHIN THE BOX
+		draw.SimpleTextOutlined( magleft,"ammof",ScrW() - 86,ScrH() - 31, Color( 230,230,230,255),TEXT_ALIGN_CENTER,0,1,Color( 0,0,0,60 ))-- THE TEXT WITHIN THE BOX
 	end    
-	if magleft <= 0 and magextra > 0 then
-	end
 	if magextra > 0 then
-	draw.SimpleTextOutlined( "/","ammof",ScrW() - 69.5,ScrH() - 31, Color( 230,230,230,220 ),0,0,0, Color( 0,0,0,60 ))-- THE TEXT WITHIN THE BOX
-	draw.SimpleTextOutlined( magextra,"ammof",ScrW() - 38,ScrH() - 31, Color( 110,110,110,255 ),TEXT_ALIGN_CENTER,0,1,Color( 0,0,0,60 ))-- THE TEXT WITHIN THE BOX
+		draw.SimpleTextOutlined( "/","ammof",ScrW() - 69.5,ScrH() - 31, Color( 230,230,230,220 ),0,0,0, Color( 0,0,0,60 ))-- THE TEXT WITHIN THE BOX
+		draw.SimpleTextOutlined( magextra,"ammof",ScrW() - 38,ScrH() - 31, Color( 110,110,110,255 ),TEXT_ALIGN_CENTER,0,1,Color( 0,0,0,60 ))-- THE TEXT WITHIN THE BOX
 	end
 
 	if secammo > 0 then
