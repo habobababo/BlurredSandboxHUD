@@ -102,33 +102,33 @@ hook.Add("HUDPaint", "CoreHudPaint", CoreHud)
 
 
 hook.Add("InitPostEntity", "DrawPlayerModel", function()
-		local avatarsize = 175
-		iconmodel = vgui.Create("DModelPanel")
-		iconmodel:SetModel( LocalPlayer():GetModel())
-		function iconmodel:LayoutEntity( Entity ) return end
-		iconmodel:SetPos((ScrW()/2)-100, ScrH()-170)
-		iconmodel:SetAnimated(false)
-		iconmodel:SetSize(avatarsize,avatarsize)
-		iconmodel:SetCamPos( Vector( 20, 0, 65))
-		iconmodel:SetLookAt( Vector( 0, 0, 66.5 ) )
-		
-		timer.Create("RefreshAvatar", 0.1, 0, function()
-			if GetConVarNumber( 'Core_ShowAvatar' ) == 1 and IsValid(iconmodel) then
-				if LocalPlayer():GetModel() ~= iconmodel.Entity:GetModel() then
-					iconmodel:Remove()		
-					iconmodel = vgui.Create("DModelPanel")
-					iconmodel:SetPos((ScrW()/2)-100, ScrH()-170)
-					iconmodel:SetModel( LocalPlayer():GetModel())
-					function iconmodel:LayoutEntity( Entity ) return end
-					iconmodel:SetAnimated(false)
-					iconmodel:SetSize(avatarsize,avatarsize)
-					iconmodel:SetCamPos( Vector( 20, 0, 65))
-					iconmodel:SetLookAt( Vector( 0, 0, 66.5 ) )
-				end
-			else
-				if iconmodel then iconmodel:Remove() end
+	local avatarsize = 175
+	iconmodel = vgui.Create("DModelPanel")
+	iconmodel:SetModel( LocalPlayer():GetModel())
+	function iconmodel:LayoutEntity( Entity ) return end
+	iconmodel:SetPos((ScrW()/2)-100, ScrH()-170)
+	iconmodel:SetAnimated(false)
+	iconmodel:SetSize(avatarsize,avatarsize)
+	iconmodel:SetCamPos( Vector( 20, 0, 65))
+	iconmodel:SetLookAt( Vector( 0, 0, 66.5 ) )
+	
+	timer.Create("RefreshAvatar", 0.1, 0, function()
+		if GetConVarNumber( 'Core_ShowAvatar' ) == 1 and IsValid(iconmodel) then
+			if LocalPlayer():GetModel() ~= iconmodel.Entity:GetModel() then
+				iconmodel:Remove()		
+				iconmodel = vgui.Create("DModelPanel")
+				iconmodel:SetPos((ScrW()/2)-100, ScrH()-170)
+				iconmodel:SetModel( LocalPlayer():GetModel())
+				function iconmodel:LayoutEntity( Entity ) return end
+				iconmodel:SetAnimated(false)
+				iconmodel:SetSize(avatarsize,avatarsize)
+				iconmodel:SetCamPos( Vector( 20, 0, 65))
+				iconmodel:SetLookAt( Vector( 0, 0, 66.5 ) )
 			end
-		end)
+		else
+			if iconmodel then iconmodel:Remove() end
+		end
+	end)
 		
 		
 end)
